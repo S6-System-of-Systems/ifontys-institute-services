@@ -1,4 +1,4 @@
-package com.appliedscience.api.io.entities;
+package com.appliedscience.api.data.entities;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -8,10 +8,7 @@ import javax.persistence.*;
 @Entity(name = "projects")
 @Getter
 @Setter
-public class Project {
-    @Id
-    @GeneratedValue
-    private Long id;
+public class Project extends BaseEntity {
 
     @Column(nullable = false)
     private String name;

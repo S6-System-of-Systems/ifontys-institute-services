@@ -1,9 +1,9 @@
-package com.appliedscience.api.shared.dto;
+package com.appliedscience.api.web.model.response;
 
 import lombok.Data;
 
 @Data
-public class ProjectDto {
+public class ProjectResponseModel {
     private Long id;
     private String name;
     private String description;

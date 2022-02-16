@@ -1,9 +1,10 @@
-package com.appliedscience.api.web.model.request;
+package com.appliedscience.api.web.dto;
 
 import lombok.Data;
 
 @Data
-public class ProjectRequestEntity {
+public class ProjectDto {
+    private Long id;
     private String name;
     private String description;
 }

@@ -1,4 +1,4 @@
-package com.appliedscience.api.aspect;
+package com.appliedscience.api.config;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
