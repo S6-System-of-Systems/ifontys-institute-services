@@ -1,10 +1,11 @@
 package com.appliedscience.api.services.impl;
 
 import com.appliedscience.api.exceptions.ProjectNotFoundException;
-import com.appliedscience.api.io.entities.ProjectEntity;
+import com.appliedscience.api.io.entities.Project;
 import com.appliedscience.api.io.repositories.ProjectRepository;
 import com.appliedscience.api.services.ProjectService;
 import com.appliedscience.api.shared.dto.ProjectDto;
+import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -18,16 +19,15 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 @Transactional
 public class ProjectServiceImpl implements ProjectService {
 
     private final ProjectRepository repository;
-    private final ModelMapper mapper;
 
-    @Autowired
-    public ProjectServiceImpl(ProjectRepository repository) {
-        this.repository = repository;
-        this.mapper = new ModelMapper();
+    @Override
+    public Page<Project> findAll(Pageable page) {
+        return repository.findAll(page);
     }
 
     @Override
@@ -38,10 +38,10 @@ public class ProjectServiceImpl implements ProjectService {
 
         Pageable pageable = PageRequest.of(page, limit);
 
-        Page<ProjectEntity> projectPage = repository.findAll(pageable);
-        List<ProjectEntity> project = projectPage.getContent();
+        Page<Project> projectPage = repository.findAll(pageable);
+        List<Project> project = projectPage.getContent();
 
-        for(ProjectEntity projectEntity : project) {
+        for(Project projectEntity : project) {
             ProjectDto projectDto = mapper.map(projectEntity, ProjectDto.class);
             projects.add(projectDto);
         }
@@ -51,7 +51,7 @@ public class ProjectServiceImpl implements ProjectService {
 
     @Override
     public ProjectDto get(Long id) {
-        Optional<ProjectEntity> project = repository.findById(id);
+        Optional<Project> project = repository.findById(id);
 
         if(project.isEmpty()) throw new ProjectNotFoundException(id.toString());
 
@@ -60,7 +60,7 @@ public class ProjectServiceImpl implements ProjectService {
 
     @Override
     public ProjectDto create(String name, String description) {
-        ProjectEntity projectEntity = new ProjectEntity();
+        Project projectEntity = new Project();
         projectEntity.setName(name);
         projectEntity.setDescription(description);
 

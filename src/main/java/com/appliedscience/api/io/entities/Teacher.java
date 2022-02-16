@@ -11,7 +11,7 @@ import java.util.Date;
 @Entity(name = "teachers")
 @Getter
 @Setter
-public class TeacherEntity {
+public class Teacher {
     @Id
     @GeneratedValue
     private Long id;

@@ -8,7 +8,7 @@ import javax.persistence.*;
 @Entity(name = "projects")
 @Getter
 @Setter
-public class ProjectEntity {
+public class Project {
     @Id
     @GeneratedValue
     private Long id;
