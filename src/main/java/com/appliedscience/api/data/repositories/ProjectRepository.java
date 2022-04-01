@@ -1,6 +1,5 @@
 package com.appliedscience.api.data.repositories;
 
-import com.appliedscience.api.data.entities.Project;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,7 +1,6 @@
 package com.appliedscience.api.domain.services.impl;
 
 import com.appliedscience.api.domain.services.ProjectService;
-import com.appliedscience.api.data.entities.Project;
 import com.appliedscience.api.data.repositories.ProjectRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;

@@ -1,6 +1,5 @@
 package com.appliedscience.api.domain.services.impl;
 
-import com.appliedscience.api.data.entities.Teacher;
 import com.appliedscience.api.data.repositories.TeacherRepository;
 import com.appliedscience.api.domain.services.TeacherService;
 import lombok.RequiredArgsConstructor;

@@ -1,6 +1,5 @@
 package com.appliedscience.api.web.mapper;
 
-import com.appliedscience.api.data.entities.Project;
 import com.appliedscience.api.web.dto.ProjectDto;
 import com.appliedscience.api.web.model.request.ProjectRequestModel;
 import org.mapstruct.*;
