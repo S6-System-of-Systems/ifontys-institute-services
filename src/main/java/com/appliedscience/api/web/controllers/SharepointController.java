@@ -73,7 +73,6 @@ public class SharepointController {
     }
 
     @PostMapping
-    @CacheEvict(cacheNames = {"sharepoint"}, key = "#name")
     @Operation(summary = "Creates a sharepoint")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "201", description = "Sharepoint created",

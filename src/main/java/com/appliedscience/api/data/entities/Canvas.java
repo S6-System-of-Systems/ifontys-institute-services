@@ -15,7 +15,5 @@ public class Canvas extends BaseEntity{
     @ElementCollection
     private List<Course> courses;
     @ElementCollection
-    private List<Todo> todos;
-    @ElementCollection
     private List<Assignment> assignments;
 }

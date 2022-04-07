@@ -6,13 +6,11 @@ import com.appliedscience.api.web.model.request.SharepointRequestModel;
 import org.mapstruct.*;
 
 @Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
-public abstract class SharepointMapper {
-    public abstract SharepointDto toDto(Sharepoint sharepoint);
+public interface SharepointMapper {
+    SharepointDto toDto(Sharepoint sharepoint);
 
-    @Mappings({
-            @Mapping(target = "username", source = "username")
-    })
-    public abstract Sharepoint toModel(SharepointRequestModel model);
+    @Mapping(target = "username", source = "username")
+    Sharepoint toModel(SharepointRequestModel model);
 
-    public abstract void updateModel(@MappingTarget Sharepoint sharepoint, SharepointRequestModel model);
+    void updateModel(@MappingTarget Sharepoint sharepoint, SharepointRequestModel model);
 }
