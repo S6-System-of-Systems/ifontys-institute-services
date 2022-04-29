@@ -19,6 +19,8 @@
         <cucumber.java.version>1.2.6</cucumber.java.version>
         <cucumber.version>6.10.3</cucumber.version>
         <junit-platform.version>1.7.2</junit-platform.version>
+        <sonar.organization>s6-system-of-systems</sonar.organization>
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
     </properties>
     <dependencies>
         <dependency>
@@ -66,6 +68,8 @@
             <scope>runtime</scope>
             <optional>true</optional>
         </dependency>
+
+
     </dependencies>
 
     <build>
