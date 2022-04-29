@@ -1,3 +1,3 @@
 s6-appliedscience
 
-Beschikbaar via: https://s6-appliedscience.meelsnet.nl/swagger-ui/index.html
+Beschikbaar via: https://as.meelsnet.nl/swagger-ui/index.html
