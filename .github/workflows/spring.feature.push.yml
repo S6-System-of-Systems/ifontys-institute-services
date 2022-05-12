@@ -6,7 +6,7 @@ on:
       - feature/*
 
 jobs:
-  docker:
+  build-analyze:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
