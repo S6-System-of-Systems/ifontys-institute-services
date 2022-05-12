@@ -2,13 +2,18 @@ package com.appliedscience.api.web.model.request;
 
 import lombok.Data;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 @Data
 public class SharepointRequestModel {
     private String username;
     private String workPhone;
+    private String cellPhone;
+    private String facebook;
+    private String linkedIn;
+    private List<String> schools;
+    private String twitter;
+    private List<String> pastEmployers;
     private List<String> currentProjects;
     private List<String> ambitions;
     private String contributions;
@@ -23,6 +28,7 @@ public class SharepointRequestModel {
     private String displayName;
     private String emailAdress;
     private String firstName;
+    private List<String> interests;
     private String lastName;
     private String office;
     private List<String> responsibilities;

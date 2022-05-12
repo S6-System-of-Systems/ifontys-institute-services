@@ -7,6 +7,7 @@ import org.mapstruct.*;
 
 @Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface SharepointMapper {
+    @Mapping(target = "username", source = "username")
     SharepointDto toDto(Sharepoint sharepoint);
 
     @Mapping(target = "username", source = "username")

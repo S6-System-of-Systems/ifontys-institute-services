@@ -1,136 +1,100 @@
-;             
-CREATE USER IF NOT EXISTS "SA" SALT '4c6985efc67743b5' HASH '43bce2714b3cdd04b3dc3d598a86d191d944f6a6768cb8d4dfe671c448529d51' ADMIN;         
-CREATE SEQUENCE "PUBLIC"."HIBERNATE_SEQUENCE" START WITH 2;   
-CREATE MEMORY TABLE "PUBLIC"."CANVAS"(
-    "ID" BIGINT NOT NULL,
-    "CREATED" TIMESTAMP,
-    "LAST_MODIFIED" TIMESTAMP,
-    "VERSION" BIGINT
-);         
-ALTER TABLE "PUBLIC"."CANVAS" ADD CONSTRAINT "PUBLIC"."CONSTRAINT_7" PRIMARY KEY("ID");       
--- 0 +/- SELECT COUNT(*) FROM PUBLIC.CANVAS;  
-CREATE MEMORY TABLE "PUBLIC"."CANVAS_ASSIGNMENTS"(
-    "CANVAS_ID" BIGINT NOT NULL,
-    "DESCRIPTION" VARCHAR(255),
-    "ID" BIGINT,
-    "NAME" VARCHAR(255)
-);          
--- 0 +/- SELECT COUNT(*) FROM PUBLIC.CANVAS_ASSIGNMENTS;      
-CREATE MEMORY TABLE "PUBLIC"."CANVAS_COURSES"(
-    "CANVAS_ID" BIGINT NOT NULL,
-    "ID" VARCHAR(255),
-    "OPMERKINGEN" VARCHAR(255),
-    "PROJECT_NAAM" VARCHAR(255),
-    "TAAK_NAAM" VARCHAR(255)
-); 
--- 0 +/- SELECT COUNT(*) FROM PUBLIC.CANVAS_COURSES;          
-CREATE MEMORY TABLE "PUBLIC"."SHAREPOINT"(
-    "ID" BIGINT NOT NULL,
-    "CREATED" TIMESTAMP,
-    "LAST_MODIFIED" TIMESTAMP,
-    "VERSION" BIGINT,
-    "ABOUT_ME" TEXT,
-    "CONTRIBUTIONS" VARCHAR(255),
-    "DEPARTMENT" VARCHAR(255),
-    "DISPLAY_NAME" VARCHAR(255),
-    "EMAIL_ADRESS" VARCHAR(255),
-    "FIRST_NAME" VARCHAR(255),
-    "GOALS" TEXT,
-    "LAST_NAME" VARCHAR(255),
-    "OFFICE" VARCHAR(255),
-    "PHOTO_URI" VARCHAR(255),
-    "PROJECT_DESCRIPTIONS" VARCHAR(255),
-    "SCHEDULE" VARCHAR(255),
-    "TEL_LINK" VARCHAR(255),
-    "TITLE" VARCHAR(255),
-    "USERNAME" VARCHAR(255),
-    "VIDEO_LINK" VARCHAR(255),
-    "WORK_PHONE" VARCHAR(255)
-);            
-ALTER TABLE "PUBLIC"."SHAREPOINT" ADD CONSTRAINT "PUBLIC"."CONSTRAINT_B" PRIMARY KEY("ID");   
--- 1 +/- SELECT COUNT(*) FROM PUBLIC.SHAREPOINT;              
+-- 2 +/- SELECT COUNT(*) FROM PUBLIC.SHAREPOINT;
 INSERT INTO "PUBLIC"."SHAREPOINT" VALUES
-(1, TIMESTAMP '2022-04-07 14:43:27.199597', TIMESTAMP '2022-04-07 14:43:27.199597', 0, STRINGDECODE('<p><br></p><p>Sinds augustus 2021 voer ik, samen met Marcel Narings, IT Architect taken uit binnen FHICT, dit voor 2 dagen in de week.<br>Sinds mei 2019 ben ik projectleider van het ambitiethema Digital Excellence in het Open Up programma.<br>Van jan 2018 tot mei 2019 ben ik teamcoach geweest van het onderwijsteam Software. Ik ben sinds aug 2015 werkzaam bij Fontys ICT als docent software engineering. Daarvoor heb ik 3 jaar lesgegeven in de UCLL, de hogeschool Informatica van Leuven. Bij mijn lesgeven maak ik nog graag gebruik van mijn werkervaring in het consultancy bureau Xenit, een document management systeem installateur, en mijn 1 jaar onderzoekservaring als doctoraatsstudent bij de KUL. Ik ben afgestudeerd als Master Informatica, Artifici\u00eble Intelligentie in 2005 bij de KULeuven.</p>'), '<p>Operationalisering in vakken<br></p>', 'Algemeen', 'Veracx,Merel M.M.S.', NULL, 'Merel', '<p>Inhoudelijke expertise verdiepen in Java EE 7 en gelijkaardige frameworks. <br></p><p>Meer vakken geven in S6 en bijdragen aan software niveau verhoging in S3 en S4.</p><p>Vakken geven in Big Data specialisatie route. Verder uitbouwen van deze leerlijn.</p><p><span><span class=ms-profilevalue><span><span><span class=ms-profilevalue><span>PRIVEINFORMATIE</span></span></span><br><br>PRIVEINFORMATIE</span></span></span><br></p>', 'Veracx', 'R10 3.44', 'https://api.fhict.nl/pictures/I874529.jpg', '<p><br></p><p>- 2018 voorjaar start onderzoek</p><p>Scholingsplanning:</p><p>- 2017 nj: </p><p>&nbsp;- Big Data Machine Learning <br></p><p>&nbsp;- Basistraining ontdek autisme<br></p>', 'VERM61', '', 'Medewerker FHICT', 'I874529', '', '+31885074529');      
-CREATE MEMORY TABLE "PUBLIC"."SHAREPOINT_AMBITIONS"(
-    "SHAREPOINT_ID" BIGINT NOT NULL,
-    "AMBITIONS" VARCHAR(255)
-);  
--- 3 +/- SELECT COUNT(*) FROM PUBLIC.SHAREPOINT_AMBITIONS;    
+(1, TIMESTAMP '2022-05-12 10:24:44.797341', TIMESTAMP '2022-05-12 10:24:44.797842', 0, '<p><span style="font-family:&quot;source sans pro&quot;, helvetica, arial, sans-serif, &quot;hiragino kaku gothic pro&quot;, meiryo, &quot;hiragino sans gb w3&quot;, &quot;noto naskh arabic&quot;, &quot;droid arabic naskh&quot;, &quot;geeza pro&quot;, &quot;simplified arabic&quot;, &quot;noto sans thai&quot;, thonburi, dokchampa, &quot;droid sans thai&quot;, &quot;droid sans fallback&quot;, -apple-system, &quot;.sfnsdisplay-regular&quot;, &quot;heiti sc&quot;, &quot;microsoft yahei&quot;, &quot;segoe ui&quot;;text-align:center;background-color:#ffffff;">Life enthusiast and motivated team player</span>.</p>', '0627255555', '<div></div><div>TEL Hero vanaf het eerste moment. Daarbij lift ik nog wat mee op mijn FUN12-succes van het afgelopen schooljaar. Die trend zet ik wel zeker voort bij andere vakken en semesters!</div><div><br></div><div>Vorig schooljaar ben ik in de herfstvakantie naar Denemarken geweest. Daar ben ik dit jaar samen met 10 studenten naartoe geweest om daar 1 week een project met Deense studenten te draaien. Dat wat erg leuk en leerzaam!</div><div><br></div><div>In alle semesters waarbinnen ik actief ben pas ik mijn kennis en ervaring toe om talent te ontwikkelen. Dat doe ik voornamelijk door studenten veel de kans te geven zelf hun studie vorm te geven in plaats van alles van te voren vast te zetten en te dicteren.</div><div><br></div><div>Vanaf begin dit schooljaar voel ik mij een beetje een vaste kracht bij Open Innovation. Daar wil ik mij meer in gaan verdiepen. Ik heb twee keer een workshop Unity geven bij maatwerk semester 2. Deze heb ik in Canvas Commons gezet zodat elke docent EN student deze kan geven en/of volgen in het kader van #KennisDeling.<br></div>', 'Algemeen', 'Loose,Wilrik W.R. De', NULL, 'https://www.facebook.com/wilrik.deloose', 'Wilrik', 'Ik wil een open opleiding, zonder docenten, roosters, vakken en lestijden. Ik zie een instituut voor me waar studenten werken aan eigen goals, gedreven door passie, ambitie en echte opdrachten van onze PiE''s.<br>', 'De Loose', 'https://www.linkedin.com/in/wilrikl/', 'TQ4', 'https://api.fhict.nl/pictures/I873955.jpg', '<div>Ik ben met 10 studenten een week naar Kolding, Denemarken gegaan om daar een project te doen met Deense studenten.<br></div>', 'LOOW01', 'https://www.youtube.com/watch?v=tykWFOlIPbM', 'Docent FHICT', 'https://twitter.com/wilrikl', 'I873955', '', '+318855555'),
+(2, TIMESTAMP '2022-05-12 10:30:39.881422', TIMESTAMP '2022-05-12 10:30:39.881422', 0, STRINGDECODE('<p><br></p><p>Sinds augustus 2021 voer ik, samen met Marcel Narings, IT Architect taken uit binnen FHICT, dit voor 2 dagen in de week.<br>Sinds mei 2019 ben ik projectleider van het ambitiethema Digital Excellence in het Open Up programma.<br>Van jan 2018 tot mei 2019 ben ik teamcoach geweest van het onderwijsteam Software. Ik ben sinds aug 2015 werkzaam bij Fontys ICT als docent software engineering. Daarvoor heb ik 3 jaar lesgegeven in de UCLL, de hogeschool Informatica van Leuven. Bij mijn lesgeven maak ik nog graag gebruik van mijn werkervaring in het consultancy bureau Xenit, een document management systeem installateur, en mijn 1 jaar onderzoekservaring als doctoraatsstudent bij de KUL. Ik ben afgestudeerd als Master Informatica, Artifici\u00eble Intelligentie in 2005 bij de KULeuven.</p>'), NULL, '<p>Operationalisering in vakken<br></p>', 'Algemeen', 'Veracx,Merel M.M.S.', NULL, NULL, 'Merel', '<p>Inhoudelijke expertise verdiepen in Java EE 7 en gelijkaardige frameworks. <br></p><p>Meer vakken geven in S6 en bijdragen aan software niveau verhoging in S3 en S4.</p><p>Vakken geven in Big Data specialisatie route. Verder uitbouwen van deze leerlijn.</p><p><span><span class=ms-profilevalue><span><span><span class=ms-profilevalue><span>PRIVEINFORMATIE</span></span></span><br><br>PRIVEINFORMATIE</span></span></span><br></p>', 'Veracx', NULL, 'R10 3.44', 'https://api.fhict.nl/pictures/I874529.jpg', '<p><br></p><p>- 2018 voorjaar start onderzoek</p><p>Scholingsplanning:</p><p>- 2017 nj: </p><p>&nbsp;- Big Data Machine Learning <br></p><p>&nbsp;- Basistraining ontdek autisme<br></p>', 'VERM61', '', 'Medewerker FHICT', NULL, 'I874529', '', '+31885074529');           
+
+-- 7 +/- SELECT COUNT(*) FROM PUBLIC.SHAREPOINT_AMBITIONS;    
 INSERT INTO "PUBLIC"."SHAREPOINT_AMBITIONS" VALUES
-(1, 'Kennisinstelling'),
-(1, 'Ondernemend gedrag'),
-(1, 'Talent ontwikkeling');         
-CREATE MEMORY TABLE "PUBLIC"."SHAREPOINT_CURRENT_PROJECTS"(
-    "SHAREPOINT_ID" BIGINT NOT NULL,
-    "CURRENT_PROJECTS" VARCHAR(255)
-);    
--- 5 +/- SELECT COUNT(*) FROM PUBLIC.SHAREPOINT_CURRENT_PROJECTS;             
+(1, 'Internationalisatie'),
+(1, 'Talent ontwikkeling'),
+(1, 'Technology Enhanced Learning'),
+(1, 'Tilburg'),
+(2, 'Kennisinstelling'),
+(2, 'Ondernemend gedrag'),
+(2, 'Talent ontwikkeling');        
+
+-- 6 +/- SELECT COUNT(*) FROM PUBLIC.SHAREPOINT_CURRENT_PROJECTS;             
 INSERT INTO "PUBLIC"."SHAREPOINT_CURRENT_PROJECTS" VALUES
-(1, 'Wekelijkse formatieve feedback op leerdoelen in maatwerk S2 aan de hand van testen'),
-(1, 'Ondernemendheid inbouwen in software ontwikkelingsvakken in semester 6 met rijkere leeromgeving en (optionele) opdrachten holistisch gedefinieerd'),
-(1, 'Materiaalontwikkeling S3 voor Big Data afstudeerrichting'),
-(1, 'Verhoging niveau software programmeervaardigheden in vak JCF4 door holistische leerdoelen'),
-(1, 'SLB professionele beoordeling in de praktijk in startsemester en herstructureren materiaal in Canvas');           
-CREATE MEMORY TABLE "PUBLIC"."SHAREPOINT_RESPONSIBILITIES"(
-    "SHAREPOINT_ID" BIGINT NOT NULL,
-    "RESPONSIBILITIES" VARCHAR(255)
-);    
--- 9 +/- SELECT COUNT(*) FROM PUBLIC.SHAREPOINT_RESPONSIBILITIES;             
+(1, 'Internationalisatie Kolding'),
+(2, 'Wekelijkse formatieve feedback op leerdoelen in maatwerk S2 aan de hand van testen'),
+(2, 'Ondernemendheid inbouwen in software ontwikkelingsvakken in semester 6 met rijkere leeromgeving en (optionele) opdrachten holistisch gedefinieerd'),
+(2, 'Materiaalontwikkeling S3 voor Big Data afstudeerrichting'),
+(2, 'Verhoging niveau software programmeervaardigheden in vak JCF4 door holistische leerdoelen'),
+(2, 'SLB professionele beoordeling in de praktijk in startsemester en herstructureren materiaal in Canvas');      
+
+-- 12 +/- SELECT COUNT(*) FROM PUBLIC.SHAREPOINT_INTERESTS;   
+INSERT INTO "PUBLIC"."SHAREPOINT_INTERESTS" VALUES
+(1, 'Studentnabij onderwijs'),
+(1, 'KAL'),
+(1, 'Flipping the classroom'),
+(1, 'Didactiek'),
+(1, 'Environment'),
+(1, 'Making music'),
+(1, 'Helping'),
+(1, 'Coaching'),
+(1, 'eduScrum'),
+(1, 'AR'),
+(1, 'VR'),
+(1, 'Game development');
+
+-- 1 +/- SELECT COUNT(*) FROM PUBLIC.SHAREPOINT_PAST_EMPLOYERS;               
+INSERT INTO "PUBLIC"."SHAREPOINT_PAST_EMPLOYERS" VALUES
+(1, 'TASS');         
+
+-- 11 +/- SELECT COUNT(*) FROM PUBLIC.SHAREPOINT_RESPONSIBILITIES;            
 INSERT INTO "PUBLIC"."SHAREPOINT_RESPONSIBILITIES" VALUES
-(1, 'Software Engineering'),
-(1, 'Machine Learning'),
-(1, 'Test Automation'),
-(1, 'distributed systems'),
-(1, 'Artificial Intelligence'),
-(1, 'Talent Gericht Onderwijs'),
-(1, 'Maatwerk'),
-(1, 'Prikkelverwerking'),
-(1, 'IT Architect'); 
-CREATE MEMORY TABLE "PUBLIC"."SHAREPOINT_SKILLS"(
-    "SHAREPOINT_ID" BIGINT NOT NULL,
-    "SKILLS" VARCHAR(255)
-);        
--- 8 +/- SELECT COUNT(*) FROM PUBLIC.SHAREPOINT_SKILLS;       
+(1, 'Blokeigenaar OvP'),
+(1, 'Maatwerk coordinator kernfase Software Engineering'),
+(2, 'Software Engineering'),
+(2, 'Machine Learning'),
+(2, 'Test Automation'),
+(2, 'distributed systems'),
+(2, 'Artificial Intelligence'),
+(2, 'Talent Gericht Onderwijs'),
+(2, 'Maatwerk'),
+(2, 'Prikkelverwerking'),
+(2, 'IT Architect');           
+
+-- 2 +/- SELECT COUNT(*) FROM PUBLIC.SHAREPOINT_SCHOOLS;      
+INSERT INTO "PUBLIC"."SHAREPOINT_SCHOOLS" VALUES
+(1, STRINGDECODE('Computer Science \uff06 Engineering TU/e')),
+(1, 'Hogere Informatica');
+-- 37 +/- SELECT COUNT(*) FROM PUBLIC.SHAREPOINT_SKILLS;      
 INSERT INTO "PUBLIC"."SHAREPOINT_SKILLS" VALUES
-(1, 'Scherpe analytische blik'),
-(1, 'Student gerichte opleiding'),
-(1, 'Maatwerk'),
-(1, 'Vakinhoudelijk'),
-(1, 'Vakdidactisch'),
-(1, 'Activerende werkvormen'),
-(1, 'Passievol'),
-(1, 'Humoristisch');               
-CREATE MEMORY TABLE "PUBLIC"."TALENTEN_MARKTPLAATS"(
-    "ID" BIGINT NOT NULL,
-    "CREATED" TIMESTAMP,
-    "LAST_MODIFIED" TIMESTAMP,
-    "VERSION" BIGINT,
-    "FUNCTIE" VARCHAR(255),
-    "KENNIS" VARCHAR(255),
-    "LINKED_IN" VARCHAR(255),
-    "OPLEIDING" VARCHAR(255),
-    "OVER_MIJ" VARCHAR(255),
-    "ROL" VARCHAR(255),
-    "TALENTEN" VARCHAR(255),
-    "VRAAG" VARCHAR(255)
-);    
-ALTER TABLE "PUBLIC"."TALENTEN_MARKTPLAATS" ADD CONSTRAINT "PUBLIC"."CONSTRAINT_9" PRIMARY KEY("ID");         
--- 0 +/- SELECT COUNT(*) FROM PUBLIC.TALENTEN_MARKTPLAATS;    
-CREATE MEMORY TABLE "PUBLIC"."TALENTEN_MARKTPLAATS_INZET"(
-    "TALENTEN_MARKTPLAATS_ID" BIGINT NOT NULL,
-    "INZET" VARCHAR(255)
-);      
--- 0 +/- SELECT COUNT(*) FROM PUBLIC.TALENTEN_MARKTPLAATS_INZET;              
-CREATE MEMORY TABLE "PUBLIC"."TALENTEN_MARKTPLAATS_PROJECTEN"(
-    "TALENTEN_MARKTPLAATS_ID" BIGINT NOT NULL,
-    "PROJECTEN" VARCHAR(255)
-);              
--- 0 +/- SELECT COUNT(*) FROM PUBLIC.TALENTEN_MARKTPLAATS_PROJECTEN;          
-ALTER TABLE "PUBLIC"."CANVAS_COURSES" ADD CONSTRAINT "PUBLIC"."FK29XOIO894K08AFMGP0GLY8Y1S" FOREIGN KEY("CANVAS_ID") REFERENCES "PUBLIC"."CANVAS"("ID") NOCHECK;              
-ALTER TABLE "PUBLIC"."SHAREPOINT_RESPONSIBILITIES" ADD CONSTRAINT "PUBLIC"."FKAHVJU43KF622LV4KE61ORANA9" FOREIGN KEY("SHAREPOINT_ID") REFERENCES "PUBLIC"."SHAREPOINT"("ID") NOCHECK;         
-ALTER TABLE "PUBLIC"."CANVAS_ASSIGNMENTS" ADD CONSTRAINT "PUBLIC"."FK6GRJP0RDD9FHK2ILYJ32VF2UW" FOREIGN KEY("CANVAS_ID") REFERENCES "PUBLIC"."CANVAS"("ID") NOCHECK;          
-ALTER TABLE "PUBLIC"."SHAREPOINT_CURRENT_PROJECTS" ADD CONSTRAINT "PUBLIC"."FK9I3ABPYL5TTNOD7CWPCXIKY41" FOREIGN KEY("SHAREPOINT_ID") REFERENCES "PUBLIC"."SHAREPOINT"("ID") NOCHECK;         
-ALTER TABLE "PUBLIC"."SHAREPOINT_SKILLS" ADD CONSTRAINT "PUBLIC"."FKF1M4TUNW65GKUK7LKE7OD04WJ" FOREIGN KEY("SHAREPOINT_ID") REFERENCES "PUBLIC"."SHAREPOINT"("ID") NOCHECK;   
-ALTER TABLE "PUBLIC"."TALENTEN_MARKTPLAATS_INZET" ADD CONSTRAINT "PUBLIC"."FKA7QMMO2KU82R4KC4I5W3KV3TJ" FOREIGN KEY("TALENTEN_MARKTPLAATS_ID") REFERENCES "PUBLIC"."TALENTEN_MARKTPLAATS"("ID") NOCHECK;      
-ALTER TABLE "PUBLIC"."TALENTEN_MARKTPLAATS_PROJECTEN" ADD CONSTRAINT "PUBLIC"."FK6KVHLHSXD0BR0X5XOLGC4JKEX" FOREIGN KEY("TALENTEN_MARKTPLAATS_ID") REFERENCES "PUBLIC"."TALENTEN_MARKTPLAATS"("ID") NOCHECK;  
-ALTER TABLE "PUBLIC"."SHAREPOINT_AMBITIONS" ADD CONSTRAINT "PUBLIC"."FKDNLY006W4OH39ETMD6VUT0D70" FOREIGN KEY("SHAREPOINT_ID") REFERENCES "PUBLIC"."SHAREPOINT"("ID") NOCHECK;
+(1, 'ANGULAR'),
+(1, 'Agile'),
+(1, 'SCRUM'),
+(1, 'Testing'),
+(1, 'Java'),
+(1, 'C#'),
+(1, 'C/C++'),
+(1, 'Embedded'),
+(1, 'PHP'),
+(1, 'Databases'),
+(1, 'SQL'),
+(1, 'PL/SQL'),
+(1, 'Software ontwikkelstraat'),
+(1, 'MSSQL'),
+(1, 'T-SQL'),
+(1, 'UML'),
+(1, 'ERD'),
+(1, 'Software Design'),
+(1, 'Motivating'),
+(1, 'Inspiring'),
+(1, 'laughing'),
+(1, 'Smiling'),
+(1, 'Didactiek'),
+(1, 'onderwijsontwikkeling'),
+(1, 'HTML'),
+(1, 'JavaScript Front-end frameworks'),
+(1, 'UI Design'),
+(1, 'UX'),
+(1, 'MVC'),
+(2, 'Scherpe analytische blik'),
+(2, 'Student gerichte opleiding'),
+(2, 'Maatwerk'),
+(2, 'Vakinhoudelijk'),
+(2, 'Vakdidactisch'),
+(2, 'Activerende werkvormen'),
+(2, 'Passievol'),
+(2, 'Humoristisch');
