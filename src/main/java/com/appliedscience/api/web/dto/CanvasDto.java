@@ -1,21 +1,15 @@
-package com.appliedscience.api.data.entities;
+package com.appliedscience.api.web.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 
 import javax.persistence.ElementCollection;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import java.util.List;
 
-@Getter
-@Setter
-@Entity(name = "canvas")
-public class Canvas {
-
-    @Id
+@Data
+@AllArgsConstructor
+public class CanvasDto {
     private String id;
     private String url;
     private String givenName;
@@ -29,8 +23,7 @@ public class Canvas {
     private String photo;
     private String department;
     private String personalTitel;
-    @OneToMany
-    private List<Groups> groups = null;
+    private List<GroupsDto> groups = null;
     private Long lat;
     @JsonProperty("long")
     private Long _long;
@@ -40,7 +33,4 @@ public class Canvas {
     private String uid;
     private String thumbnailData;
     private String employeeId;
-
-
-
 }

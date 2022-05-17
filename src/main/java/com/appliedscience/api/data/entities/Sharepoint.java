@@ -12,12 +12,29 @@ import java.util.List;
 @Setter
 @Entity(name = "sharepoint")
 public class Sharepoint extends BaseEntity{
+    @Column(nullable = true)
     private String username;
+    @Column(nullable = true)
     private String workPhone;
+    @Column(nullable = true)
+    private String cellPhone;
+    @Column(nullable = true)
+    private String facebook;
+    @Column(nullable = true)
+    private String linkedIn;
+    @Column(nullable = true)
+    @ElementCollection
+    private List<String> schools;
+    @Column(nullable = true)
+    private String twitter;
+    @Column(nullable = true)
+    @ElementCollection
+    private List<String> pastEmployers;
     @ElementCollection
     private List<String> currentProjects;
     @ElementCollection
     private List<String> ambitions;
+    @Column(columnDefinition = "text")
     private String contributions;
     @Column(columnDefinition = "text")
     private String goals;
@@ -32,6 +49,9 @@ public class Sharepoint extends BaseEntity{
     private String displayName;
     private String emailAdress;
     private String firstName;
+    @Column(nullable = true)
+    @ElementCollection
+    private List<String> interests;
     private String lastName;
     private String office;
     @ElementCollection
