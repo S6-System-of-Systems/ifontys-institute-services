@@ -25,7 +25,7 @@ public class CanvasServiceImpl implements CanvasService {
     }
 
     @Override
-    public Optional<Canvas> findById(Long id) {
+    public Optional<Canvas> findById(String id) {
         return repository.findById(id);
     }
 
@@ -40,7 +40,7 @@ public class CanvasServiceImpl implements CanvasService {
     }
 
     @Override
-    public void delete(Long id) {
+    public void delete(String id) {
         final var projectToDelete = repository.findById(id);
         projectToDelete.ifPresent(repository::delete);
     }
