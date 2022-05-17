@@ -30,11 +30,6 @@ public class CanvasServiceImpl implements CanvasService {
     }
 
     @Override
-    public Optional<Canvas> findByUsername(String username) {
-        return repository.findByUsername(username);
-    }
-
-    @Override
     public Canvas save(Canvas projectToSave) {
         return repository.save(projectToSave);
     }

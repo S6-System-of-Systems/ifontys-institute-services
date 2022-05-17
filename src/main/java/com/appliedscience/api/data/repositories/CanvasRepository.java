@@ -8,5 +8,4 @@ import java.util.Optional;
 
 @Repository
 public interface CanvasRepository extends PagingAndSortingRepository<Canvas, String> {
-    Optional<Canvas> findByUsername(String username);
 }
