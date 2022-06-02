@@ -6,6 +6,7 @@ public class ReceiverController {
 
     @RabbitListener(queues = "ifontys.queue")
     public void receive(String in) throws InterruptedException {
+
         System.out.println("Received '" + in + "'");
     }
 }
