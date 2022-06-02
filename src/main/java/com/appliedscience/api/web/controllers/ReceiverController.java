@@ -23,7 +23,8 @@ public class ReceiverController {
 
     @RabbitListener(queues = "#{autoDeleteQueue1.name}")
     public void receive1(String in) throws InterruptedException {
-        System.out.println("SHAREPOINT MESSAGE");
+        var result = sharepointService.findByUsername(in);
+        senderController.send(result.get());
     }
 
     @RabbitListener(queues = "#{autoDeleteQueue2.name}")
