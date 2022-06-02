@@ -2,10 +2,7 @@ package com.appliedscience.api.config;
 
 import com.appliedscience.api.web.controllers.ReceiverController;
 import com.appliedscience.api.web.controllers.SenderController;
-import org.springframework.amqp.core.Binding;
-import org.springframework.amqp.core.BindingBuilder;
-import org.springframework.amqp.core.Queue;
-import org.springframework.amqp.core.TopicExchange;
+import org.springframework.amqp.core.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -21,20 +18,25 @@ public class RabbitConfig {
     private static class ReceiverConfig {
 
         @Bean
-        Queue queue() {
-            return new Queue("ifontys.queue");
+        Queue autoDeleteQueue1() {
+            return new AnonymousQueue();
         }
 
         @Bean
-        public Binding bindinga(TopicExchange topic, Queue queue) {
-            return BindingBuilder.bind(queue)
+        Queue autoDeleteQueue2() {
+            return new AnonymousQueue();
+        }
+
+        @Bean
+        public Binding bindinga(TopicExchange topic, Queue autoDeleteQueue1) {
+            return BindingBuilder.bind(autoDeleteQueue1)
                     .to(topic)
                     .with("fhict.sharepoint");
         }
 
         @Bean
-        public Binding bindingb(TopicExchange topic, Queue queue) {
-            return BindingBuilder.bind(queue)
+        public Binding bindingb(TopicExchange topic, Queue autoDeleteQueue2) {
+            return BindingBuilder.bind(autoDeleteQueue2)
                     .to(topic)
                     .with("fhict.canvas");
         }
