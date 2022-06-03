@@ -17,7 +17,7 @@ public class SenderController {
     private String key;
 
     public void send(Object object) {
-        template.convertAndSend(topic.getName(), key, "pannekoek");
+        template.convertAndSend(topic.getName(), key, object);
         System.out.println(" [x] Sent '" + object + "'");
     }
 }

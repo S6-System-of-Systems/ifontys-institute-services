@@ -31,14 +31,14 @@ public class RabbitConfig {
         public Binding bindinga(TopicExchange topic, Queue autoDeleteQueue1) {
             return BindingBuilder.bind(autoDeleteQueue1)
                     .to(topic)
-                    .with("fhict.sharepoint");
+                    .with("fhict.data");
         }
 
         @Bean
         public Binding bindingb(TopicExchange topic, Queue autoDeleteQueue2) {
             return BindingBuilder.bind(autoDeleteQueue2)
                     .to(topic)
-                    .with("fhict.canvas");
+                    .with("fhke.data");
         }
 
         @Bean
