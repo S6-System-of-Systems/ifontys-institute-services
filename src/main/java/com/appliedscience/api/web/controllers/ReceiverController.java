@@ -66,10 +66,11 @@ public class ReceiverController {
 //            System.out.println(gson.toJson(sharepoint));
             results.put("sharepoint", sharepointDto);
         }
-        final var optionalCanvas = canvasService.findById(in);
+        final var optionalCanvas = canvasService.findById(in.toLowerCase());
         if(!optionalCanvas.isEmpty()) {
             final var canvas = optionalCanvas.get();
-            results.put("canvas", canvasMapper.toDto(optionalCanvas.get()));
+            var canvasDto = canvasMapper.toDto(canvas);
+            results.put("canvas", canvasDto);
             System.out.println(canvas);
         }
 
