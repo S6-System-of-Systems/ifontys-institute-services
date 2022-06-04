@@ -10,12 +10,14 @@ import com.appliedscience.api.web.mapper.CanvasMapper;
 import com.appliedscience.api.web.mapper.SharepointMapper;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
 import com.rabbitmq.client.Consumer;
 import lombok.RequiredArgsConstructor;
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.transaction.Transactional;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
@@ -24,6 +26,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@Transactional
 public class ReceiverController {
 
     @Autowired
@@ -52,31 +55,25 @@ public class ReceiverController {
         System.out.println("FHKE MESSAGE");
     }
 
-
     private void received(String in) {
         Map<String, Object> results = new HashMap<>();
+        Gson gson = new Gson();
 
         final var optionalSharepoint = sharepointService.findByUsername(in);
         if(!optionalSharepoint.isEmpty()) {
             final var sharepoint = optionalSharepoint.get();
             var sharepointDto = sharepointMapper.toDto(sharepoint);
+//            System.out.println(gson.toJson(sharepoint));
             results.put("sharepoint", sharepointDto);
         }
         final var optionalCanvas = canvasService.findById(in);
         if(!optionalCanvas.isEmpty()) {
+            final var canvas = optionalCanvas.get();
             results.put("canvas", canvasMapper.toDto(optionalCanvas.get()));
-        }
-        try {
-            FileOutputStream fos = new FileOutputStream("listData");
-            ObjectOutputStream oos = new ObjectOutputStream(fos);
-            oos.writeObject(results);
-            oos.flush();
-            oos.close();
-            fos.close();
-        } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println(canvas);
         }
 
+        System.out.println(gson.toJson(results));
         senderController.send(results);
     }
 }

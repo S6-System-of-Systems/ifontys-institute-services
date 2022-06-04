@@ -1,5 +1,6 @@
 package com.appliedscience.api.web.controllers;
 
+import com.google.gson.Gson;
 import org.springframework.amqp.core.TopicExchange;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,8 @@ public class SenderController {
     private String key;
 
     public void send(Object object) {
-        template.convertAndSend(topic.getName(), key, object);
-        System.out.println(" [x] Sent '" + object + "'");
+        Gson gson = new Gson();
+        template.convertAndSend(topic.getName(), key, gson.toJson(object));
+        System.out.println(" [x] Sent '" + gson.toJson(object) + "'");
     }
 }
