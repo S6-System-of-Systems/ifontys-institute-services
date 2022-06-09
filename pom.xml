@@ -21,6 +21,8 @@
         <junit-platform.version>1.7.2</junit-platform.version>
         <sonar.organization>s6-system-of-systems</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+        <gatling.version>3.3.1</gatling.version>
+        <gatling-maven-plugin.version>3.0.5</gatling-maven-plugin.version>
     </properties>
     <dependencies>
         <dependency>
@@ -87,6 +89,11 @@
             <version>2.9.0</version>
         </dependency>
 
+        <dependency>
+            <groupId>io.gatling.highcharts</groupId>
+            <artifactId>gatling-charts-highcharts</artifactId>
+            <version>${gatling.version}</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -120,6 +127,16 @@
                             <version>0.1.0</version>
                         </path>
                     </annotationProcessorPaths>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>io.gatling</groupId>
+                <artifactId>gatling-maven-plugin</artifactId>
+                <version>${gatling-maven-plugin.version}</version>
+                <configuration>
+                    <runMultipleSimulations>true</runMultipleSimulations>
+                    <simulationClass>institute.ptest.simulations.${simulation}</simulationClass>
                 </configuration>
             </plugin>
         </plugins>
