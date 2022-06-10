@@ -59,7 +59,7 @@ public class ReceiverController {
         Map<String, Object> results = new HashMap<>();
         Gson gson = new Gson();
 
-        final var optionalSharepoint = sharepointService.findByUsername(in);
+        final var optionalSharepoint = sharepointService.findByUsername(in.toUpperCase());
         if(!optionalSharepoint.isEmpty()) {
             final var sharepoint = optionalSharepoint.get();
             var sharepointDto = sharepointMapper.toDto(sharepoint);
