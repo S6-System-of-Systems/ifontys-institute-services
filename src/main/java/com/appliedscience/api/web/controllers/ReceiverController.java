@@ -6,6 +6,7 @@ import com.appliedscience.api.domain.exceptions.CanvasNotFoundException;
 import com.appliedscience.api.domain.exceptions.SharepointNotFoundException;
 import com.appliedscience.api.domain.services.CanvasService;
 import com.appliedscience.api.domain.services.SharepointService;
+import com.appliedscience.api.domain.services.impl.ServiceGrabberServiceImpl;
 import com.appliedscience.api.web.mapper.CanvasMapper;
 import com.appliedscience.api.web.mapper.SharepointMapper;
 import com.fasterxml.jackson.databind.DeserializationFeature;
@@ -44,6 +45,9 @@ public class ReceiverController {
     @Autowired
     private SenderController senderController;
 
+    @Autowired
+    private ServiceGrabberServiceImpl serviceGrabberService;
+
     @RabbitListener(queues = "#{autoDeleteQueue1.name}")
     public void receive1(String in) throws InterruptedException, SharepointNotFoundException, CanvasNotFoundException {
         System.out.println("FHICT MESSAGE");
@@ -56,25 +60,9 @@ public class ReceiverController {
     }
 
     private void received(String in) {
-        Map<String, Object> results = new HashMap<>();
-        Gson gson = new Gson();
 
-        final var optionalSharepoint = sharepointService.findByUsername(in.toUpperCase());
-        if(!optionalSharepoint.isEmpty()) {
-            final var sharepoint = optionalSharepoint.get();
-            var sharepointDto = sharepointMapper.toDto(sharepoint);
-//            System.out.println(gson.toJson(sharepoint));
-            results.put("sharepoint", sharepointDto);
-        }
-        final var optionalCanvas = canvasService.findById(in.toLowerCase());
-        if(!optionalCanvas.isEmpty()) {
-            final var canvas = optionalCanvas.get();
-            var canvasDto = canvasMapper.toDto(canvas);
-            results.put("canvas", canvasDto);
-            System.out.println(canvas);
-        }
+        var results = serviceGrabberService.serviceData(in);
 
-        System.out.println(gson.toJson(results));
         senderController.send(results);
     }
 }
