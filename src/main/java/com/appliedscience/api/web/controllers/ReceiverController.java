@@ -50,7 +50,7 @@ public class ReceiverController {
 
     @RabbitListener(queues = "#{autoDeleteQueue1.name}")
     public void receive1(String in) throws InterruptedException, SharepointNotFoundException, CanvasNotFoundException {
-        System.out.println("FHICT MESSAGE");
+        System.out.println("FHICT MESSAGE: " + in);
         received(in);
     }
 
